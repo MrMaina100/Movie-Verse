@@ -11,13 +11,9 @@ const APIURL = 'https://api.themoviedb.org/3/';
 const [list, setList] = useState([])
 
 
-const searchMovie = async (text)=>{
+const searchMovie = async (text)=>{   
 
-   const params = new URLSearchParams({
-      q:text
-   })
-
-   const res = await fetch(`${APIURL}/search/movie?query=${params}&api_key=${APIKEY}`)
+   const res = await fetch(`${APIURL}/search/movie?query=${text}&api_key=${APIKEY}`)
    const data = await res.json()
    console.log(data.results);
 
