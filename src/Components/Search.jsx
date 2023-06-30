@@ -1,12 +1,19 @@
-import { useState } from "react"
+import { useState, useContext, useEffect } from "react"
+import movieDbContext from "../Context/MovieDbContext"
 
 function Search() {
 
    const [input, setInput] = useState('');
+   const { searchMovie} = useContext(movieDbContext)
 
    const handleSubmit = (e)=>{
       e.preventDefault()
-      setInput('')
+      if(input === ''){
+        alert('please enter something')
+      }else{
+        searchMovie(input)
+        setInput('')
+      }
       
    }
 
