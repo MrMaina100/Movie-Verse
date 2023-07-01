@@ -1,4 +1,4 @@
-import MovieDisplay from "./Display/MovieDisplay"
+import MovieDisplay from "../Display/MovieDisplay"
 
 function Movies() {
   return (

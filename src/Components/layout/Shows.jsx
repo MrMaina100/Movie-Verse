@@ -1,4 +1,4 @@
-import TvDisplay from "./Display/TvDisplay"
+import TvDisplay from "../Display/TvDisplay"
 
 function Shows() {
   return (

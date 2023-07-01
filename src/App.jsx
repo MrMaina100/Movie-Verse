@@ -1,8 +1,8 @@
-import Header from "./Components/Header"
-import Movies from "./Components/Movies"
+import Header from "./Components/layout/Header"
+import Movies from "./Components/layout/Movies"
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
-import Shows from "./Components/Shows"
-import Home from "./Components/Home"
+import Shows from "./Components/layout/Shows"
+import Home from "./Components/layout/Home"
 import { MovieDbProvider } from "./Context/MovieDbContext"
 
 

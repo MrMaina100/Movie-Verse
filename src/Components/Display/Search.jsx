@@ -1,5 +1,5 @@
 import { useState, useContext, useEffect } from "react"
-import movieDbContext from "../Context/MovieDbContext"
+import movieDbContext from "../../Context/MovieDbContext"
 
 function Search() {
 
