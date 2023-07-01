@@ -4,18 +4,16 @@ import movieDbContext from "../Context/MovieDbContext"
 function Search() {
 
    const [input, setInput] = useState('');
-   const { searchMovie,searchTv, fetchdata} = useContext(movieDbContext)
+   const { searchMovie} = useContext(movieDbContext)
 
    const handleSubmit = (e)=>{
       e.preventDefault()
       if(input === ''){
         alert('please enter something')
-      }else if(fetchdata('movie/popular') || fetchdata('movie/top_rated')){
+      }else{
         searchMovie(input)
-      }else {
-        searchTv(input)
+        setInput('')
       }
-     
       
    }
 
