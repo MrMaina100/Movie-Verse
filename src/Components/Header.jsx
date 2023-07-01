@@ -16,9 +16,7 @@ function Header() {
           <Link to="/shows">
             <p className="font-semibold">Tv/shows</p>
           </Link>
-          <Link to="/search">
-            <p className="font-semibold">Search</p>
-          </Link>
+          
         </div>
       </div>
     </div>
