@@ -2,14 +2,15 @@ import { useContext, useEffect } from "react";
 import movieDbContext from "../../Context/MovieDbContext";
 
 function MovieDisplay() {
-  const { list, fetchdata } = useContext(movieDbContext);
+  const { list, fetchdata, loading } = useContext(movieDbContext);
 
   useEffect(() => {
     fetchdata("movie/top_rated");
   }, []);
   return (
     <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
-      {list.map((items) => {
+      {loading ? <h1>loading data....</h1> 
+      : list.map((items) => {
         return (
           <div key={items.id} className=" w-64 rounded-xl shadow-2xl h-96 ">
             <img
@@ -22,7 +23,10 @@ function MovieDisplay() {
             <p>{items.vote_average}/10</p>
           </div>
         );
-      })}
+      })
+      
+      }
+     
     </div>
   );
 }
