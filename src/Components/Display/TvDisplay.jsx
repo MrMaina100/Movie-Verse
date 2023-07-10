@@ -3,16 +3,17 @@ import movieDbContext from "../../Context/MovieDbContext"
 
 function TvDisplay() {
 
-   const {apiData, fetchData} = useContext(movieDbContext)
+   const {apiData, fetchData, pageNumber, setPageNumber} = useContext(movieDbContext)
    useEffect(()=>{
-    fetchData('tv/top_rated')
+    fetchData('tv/top_rated', pageNumber)
 
-   })
+   },[pageNumber])
    
    
   return (
-    
-    <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
+
+    <>
+      <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
       {apiData.map((items)=>{
         return(          
              <div key={items.id}  className=" w-64 rounded-xl shadow-2xl h-96 ">
@@ -30,6 +31,14 @@ function TvDisplay() {
       }
  
     </div>
+
+    <button onClick={()=>setPageNumber(page=> page -1)} disabled={pageNumber=== 1}>prev</button>
+    <button onClick={()=>setPageNumber(page=> page +1)}>next</button>
+
+    
+    </>
+    
+  
   )
 }
 export default TvDisplay

@@ -3,10 +3,10 @@ import movieDbContext from "../../Context/MovieDbContext";
 
 
 function MovieDisplay() {
-  const {apiData,fetchData} = useContext(movieDbContext);
+  const {apiData,fetchData, pageNumber, setPageNumber} = useContext(movieDbContext);
   useEffect(()=>{
-    fetchData('movie/top_rated')
-  })
+    fetchData('movie/top_rated', pageNumber)
+  },[pageNumber])
 
   
   return (
@@ -30,6 +30,9 @@ function MovieDisplay() {
       }
      
     </div>
+
+    <button onClick={()=>setPageNumber(page=>page -1)} disabled={pageNumber === 1}>Prev</button>
+    <button onClick={()=>setPageNumber(page=>page +1)}>Next</button>
  
     </>
    

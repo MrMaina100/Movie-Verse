@@ -12,6 +12,7 @@ export const MovieDbProvider = ({children})=>{
  
  const [apiData, SetApiData] = useState([]) 
  const [searchList, setSearchlist] = useState([])
+ const [pageNumber, setPageNumber]=useState(1)
  
  const searchData = async (text,)=>{  
    
@@ -23,11 +24,11 @@ export const MovieDbProvider = ({children})=>{
   
  }
 
- const fetchData = async (endpoint)=>{
+ const fetchData = async (endpoint,pageNumber)=>{
      
-     const res = await  fetch(`${APIURL}${endpoint}?api_key=${APIKEY}&language=en-US`)
+     const res = await  fetch(`${APIURL}${endpoint}?api_key=${APIKEY}&language=en-US&page=${pageNumber}`)
      const data = await res.json()
-    SetApiData(data.results) 
+     SetApiData(data.results) 
 
        
    } 
@@ -35,9 +36,11 @@ export const MovieDbProvider = ({children})=>{
    return (
    <movieDbContext.Provider value={{
     apiData,
-    searchList,  
+    searchList,
+    pageNumber,  
     searchData,
-    fetchData
+    fetchData,
+    setPageNumber
 
    
    }}>       

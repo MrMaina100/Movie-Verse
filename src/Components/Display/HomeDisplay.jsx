@@ -3,17 +3,17 @@ import movieDbContext from "../../Context/MovieDbContext"
 
 function HomeDisplay() {
 
-   const {apiData,fetchData} = useContext(movieDbContext)
+   const {apiData,fetchData, pageNumber, setPageNumber} = useContext(movieDbContext)
    useEffect(()=>{
-    fetchData('movie/popular')
-   })   
+    fetchData('movie/popular',pageNumber)
+   },[pageNumber])   
 
 
 
   return (
    
-   
-    <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
+   <>
+   <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
 
       {apiData.map((items)=>{
         return(          
@@ -32,7 +32,12 @@ function HomeDisplay() {
       })
       }
  
-    </div>
+    </div>    
+    <button onClick={()=>setPageNumber(page=>page -1)} disabled={pageNumber === 1}>prev</button>
+    <button onClick={()=>setPageNumber(page=>page +1)}>next</button>
+   
+   </>
+    
   )
 }
 export default HomeDisplay
