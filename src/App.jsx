@@ -4,16 +4,15 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Shows from "./Components/layout/Shows"
 import Home from "./Components/layout/Home"
 import { MovieDbProvider } from "./Context/MovieDbContext"
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query"
 
 
 
 function App() {
 
-  const queryClient = new QueryClient();
+  
   return (
-    <QueryClientProvider client={queryClient}>
-       <MovieDbProvider>
+    
+   <MovieDbProvider>
     <Router>      
     <Header/>
     <Routes>
@@ -23,8 +22,8 @@ function App() {
 
     </Routes>
     </Router>
-    </MovieDbProvider>
-    </QueryClientProvider>
+   </MovieDbProvider>
+    
    
   )
 }
