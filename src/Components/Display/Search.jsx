@@ -1,20 +1,22 @@
-import { useState, useContext, useEffect } from "react"
+import { useState, useContext } from "react"
 import movieDbContext from "../../Context/MovieDbContext"
+
 
 function Search() {
 
-   const [input, setInput] = useState('');
-   const { searchMovie} = useContext(movieDbContext)
+   const [formData, setFormData] = useState('');
+   const { searchData  } = useContext(movieDbContext)
 
    const handleSubmit = (e)=>{
-      e.preventDefault()
-      if(input === ''){
-        alert('please enter something')
+      e.preventDefault();
+      if(formData === ''){
+        alert('please input something')
       }else{
-        searchMovie(input)
-        setInput('')
+        searchData(formData)
+        setFormData('')
+
       }
-      
+    
    }
 
   return (
@@ -24,15 +26,14 @@ function Search() {
 
          <input
           type="text"
-          value={input} 
-          onChange={(e)=>setInput(e.target.value)}
+          value={formData}
+          name="input"
+          onChange={(e)=>setFormData(e.target.value)}
           className=" border-2 border-black rounded-xl px-4 focus:outline-none mt-4 md:px-8 md:h-10 md:rounded-lg  "
-
          />
-
          <input type="submit" />
-
-      </form>
+         
+      </form>  
 
     </div>
   )

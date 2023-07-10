@@ -1,46 +1,45 @@
-import { createContext, useState,  } from "react";
+import { createContext, useState } from "react";
+
 
 const movieDbContext = createContext();
 
 
 export const MovieDbProvider = ({children})=>{
    
-const APIKEY = '';
-const APIURL = 'https://api.themoviedb.org/3/';
+ const APIKEY = '';
+ const APIURL = 'https://api.themoviedb.org/3/';
 
-const [list, setList] = useState([]);
-const [loading, setLoading] = useState(false);
-
-const searchMovie = async (text)=>{  
+ 
+ const [apiData, SetApiData] = useState([]) 
+ const [searchList, setSearchlist] = useState([])
+ 
+ const searchData = async (text,)=>{  
    
-   const res = await fetch(`${APIURL}/search/movie?query=${text}&api_key=${APIKEY}`)
-   const data = await res.json()   
+   const res = await fetch(`${APIURL}/search/multi?query=${text}&api_key=${APIKEY}`)
+   const data = await res.json()
    console.log(data.results);
+   setSearchlist(data.results)
+   
+  
+ }
 
-   setList(data.results);
-
-}
-
-
-const fetchdata = async (endpoint)=>{
-     setLoading(true)  
-
+ const fetchData = async (endpoint)=>{
+     
      const res = await  fetch(`${APIURL}${endpoint}?api_key=${APIKEY}&language=en-US`)
      const data = await res.json()
-     setLoading(false)
+    SetApiData(data.results) 
 
-     setList(data.results);   
-   }
-
-
+       
+   } 
 
    return (
    <movieDbContext.Provider value={{
-      list,
-      loading,   
-      fetchdata,
-      searchMovie
+    apiData,
+    searchList,  
+    searchData,
+    fetchData
 
+   
    }}>       
 
   {children}
