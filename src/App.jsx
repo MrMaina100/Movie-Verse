@@ -5,6 +5,7 @@ import Shows from "./Components/layout/Shows"
 import Home from "./Components/layout/Home"
 // import Search from "./Components/Display/Search"
 import MovieDetails from "./Components/layout/MovieDetails"
+import ShowsDetails from "./Components/layout/ShowsDetails"
 import { MovieDbProvider } from "./Context/MovieDbContext"
 
 
@@ -22,7 +23,8 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/movies" element={<Movies/>}/>
       <Route path="/shows" element={<Shows/>}/> 
-      <Route path="/movieDetails/:movie_id" element={<MovieDetails/>}/>   
+      <Route path="/movieDetails/:movie_id" element={<MovieDetails/>}/>
+      <Route path="/showsDetails/:series_id" element={<ShowsDetails/>}/>   
 
     </Routes>
     </Router>

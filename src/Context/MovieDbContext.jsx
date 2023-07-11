@@ -14,6 +14,7 @@ export const MovieDbProvider = ({children})=>{
  const [searchList, setSearchlist] = useState([])
  const [pageNumber, setPageNumber]=useState(1)
  const [movieDetails, setMovieDetails] = useState({})
+ const [seriesDetails, setSeriesDetails] = useState({})
  
   const searchData = async (text,)=>{  
    
@@ -42,6 +43,12 @@ export const MovieDbProvider = ({children})=>{
    
   }
 
+  const getSingleTVDetails = async(seriesId)=>{
+   const res = await fetch(`${APIURL}/tv/${seriesId}?api_key=${APIKEY}&language=en-US`)
+   const data = await res.json()
+   setSeriesDetails(data)
+  }
+
 
 
    return (
@@ -49,11 +56,13 @@ export const MovieDbProvider = ({children})=>{
     apiData,
     searchList,
     pageNumber,
-    movieDetails,  
+    movieDetails,
+    seriesDetails,  
     searchData,
     fetchData,
     setPageNumber,
-    getSingleMovieDetails
+    getSingleMovieDetails,
+    getSingleTVDetails
   
    }}>       
 
