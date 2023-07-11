@@ -3,6 +3,8 @@ import Movies from "./Components/layout/Movies"
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom"
 import Shows from "./Components/layout/Shows"
 import Home from "./Components/layout/Home"
+// import Search from "./Components/Display/Search"
+import MovieDetails from "./Components/layout/MovieDetails"
 import { MovieDbProvider } from "./Context/MovieDbContext"
 
 
@@ -15,10 +17,12 @@ function App() {
    <MovieDbProvider>
     <Router>      
     <Header/>
+    {/* <Search/> */}
     <Routes>
       <Route path="/" element={<Home/>}/>
       <Route path="/movies" element={<Movies/>}/>
-      <Route path="/shows" element={<Shows/>}/>      
+      <Route path="/shows" element={<Shows/>}/> 
+      <Route path="/movieDetails/:movie_id" element={<MovieDetails/>}/>   
 
     </Routes>
     </Router>
