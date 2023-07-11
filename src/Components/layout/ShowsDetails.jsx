@@ -18,7 +18,7 @@ function ShowsDetails() {
      <>
     
     <div>
-     <div style={{backgroundImage:`url(https://image.tmdb.org/t/p/original/${backdrop_path})`}} className="w-full h-full bg-no-repeat bg-cover bg-center md:min-h-screen flex items-center justify-center">
+     <div style={{backgroundImage:backdrop_path ? `url(https://image.tmdb.org/t/p/original/${backdrop_path})`:`url(https://www.pexels.com/photo/word-error-on-white-surface-4439425/)`}} className="w-full h-full bg-no-repeat bg-cover bg-center md:min-h-screen flex items-center justify-center">
 
      <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
       <div className="w-62 h-96 ">
