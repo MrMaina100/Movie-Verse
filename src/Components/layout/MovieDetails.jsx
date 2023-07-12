@@ -27,7 +27,7 @@ function MovieDetails() {
         <p className="">{overview}</p>
 
         <p className="">Release Date: {release_date}</p>
-        <p>{vote_average}/10</p>
+        <p>{ typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average}/10</p>
         
 
       </div>
