@@ -23,26 +23,22 @@ function ShowsDetails() {
      </Link>
     
     
-     <div className="w-full min-h-screen flex flex-col items-center">
+   <div className="flex flex-col mt-2 md:flex-row md:space-x-2 max-w-[80%] mx-auto items-center">
 
-     <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
-      <div className="w-62 h-96 md:w-96 md:h-72">
-       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className=" w-full h-full " />
-      </div>      
-      <div className="px-2 space-y-2">
-        <p className="">{overview}</p>
+      <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className="h-96"  />
+
+      <div className="px-2.5 space-y-2 mt-2 mb-2">
+
+        <p>{overview}</p>
         <Link to={homepage}>
           <button className="p-3 bg-black text-white mt-2 rounded-lg capitalize">Visit HomePage</button>
         </Link> 
-        <p className="">first_air_date: {first_air_date}</p>
-        <p className="">last_air_date: {last_air_date}</p>
-        <p>{typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
+        <p>First-air-date: {first_air_date}</p>
+        <p>Last-air-date:{last_air_date}</p>
         
-
+        <p>Ratings:{typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
       </div>
 
-     </div>
-      
      </div>
     
    

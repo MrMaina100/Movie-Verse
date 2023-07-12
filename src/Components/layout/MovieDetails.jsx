@@ -15,39 +15,30 @@ function MovieDetails() {
    },[params.movie_id])
   return (
     <>
-
      <Link to='/'>
      <button className="p-2 ml-2 bg-black text-white mt-2 rounded-lg capitalize"><svg className="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
      <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
      </svg></button>
      </Link> 
-    
-     <div>
-     <div className="w-full min-h-screen flex flex-col items-center ">
 
-     <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
-      <div className="w-62 h-96 md:w-96 md:h-72 ">
-       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className=" w-full h-full " />
-      </div>      
-      <div className="px-5 space-y-2">
-        <p className="">{overview}</p> 
+     <div className="flex flex-col mt-2 md:flex-row md:space-x-2 max-w-[80%] mx-auto items-center">
+
+      <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className="h-96"  />
+
+      <div className="px-2.5 space-y-2 mt-2 mb-2">
+
+        <p>{overview}</p>
         <Link to={homepage}>
           <button className="p-3 bg-black text-white mt-2 rounded-lg capitalize">Visit HomePage</button>
-        </Link>       
-
+        </Link> 
         <p className="">Release Date: {release_date}</p>
-        <p>{ typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average}/10</p>
         
-
+        <p>Ratings: {typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
       </div>
 
      </div>
-      
-     </div>
-    </div>
-   
-
-
+    
+    
     </>
   )
 }
