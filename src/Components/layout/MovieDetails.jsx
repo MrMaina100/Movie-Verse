@@ -26,8 +26,8 @@ function MovieDetails() {
      <div className="w-full min-h-screen flex flex-col items-center ">
 
      <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
-      <div className="w-62 h-96 ">
-       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className=" w-full h-full md:h-[400px] md:w-[500px]" />
+      <div className="w-62 h-96 md:w-96 md:h-72 ">
+       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className=" w-full h-full " />
       </div>      
       <div className="px-5 space-y-2">
         <p className="">{overview}</p> 
