@@ -17,7 +17,7 @@ function MovieDetails() {
     <>
     
     <div>
-     <div style={{backgroundImage: poster_path ?`url(https://image.tmdb.org/t/p/original/${backdrop_path})` :`url(https://www.pexels.com/photo/word-error-on-white-surface-4439425/)` }} className="w-full h-full bg-no-repeat bg-cover bg-center md:min-h-screen flex items-center justify-center">
+     <div className="w-full min-h-screen flex flex-col items-center ">
 
      <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
       <div className="w-62 h-96 ">
@@ -25,6 +25,7 @@ function MovieDetails() {
       </div>      
       <div className="px-5 space-y-2">
         <p className="">{overview}</p>
+
         <p className="">Release Date: {release_date}</p>
         <p>{vote_average}/10</p>
         

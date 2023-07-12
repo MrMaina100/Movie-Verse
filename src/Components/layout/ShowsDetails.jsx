@@ -8,8 +8,7 @@ function ShowsDetails() {
 
    const {seriesDetails,getSingleTVDetails} = useContext(movieDbContext)
    const {first_air_date, last_air_date, homepage, overview, backdrop_path, vote_average, poster_path} = seriesDetails
-   const params = useParams();
-
+   const params = useParams();  
    useEffect(()=>{
     getSingleTVDetails(params.series_id)
 
@@ -18,7 +17,7 @@ function ShowsDetails() {
      <>
     
     
-     <div style={{backgroundImage:backdrop_path ? `url(https://image.tmdb.org/t/p/original/${backdrop_path})`:`url(https://www.pexels.com/photo/word-error-on-white-surface-4439425/)`}} className="w-full min-h-screen flex flex-col items-center justify-center bg-cover bg-no-repeat">
+     <div className="w-full min-h-screen flex flex-col items-center">
 
      <div className="bg-white mx-auto max-w-[80%] flex flex-col space-y-2 md:flex-row md:space-x-3 mt-6">
       <div className="">
@@ -28,7 +27,7 @@ function ShowsDetails() {
         <p className="">{overview}</p>
         <p className="">first_air_date: {first_air_date}</p>
         <p className="">last_air_date: {last_air_date}</p>
-        <p>{vote_average}/10</p>
+        <p>{typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
         
 
       </div>
