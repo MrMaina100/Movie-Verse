@@ -16,6 +16,7 @@ export const MovieDbProvider = ({children})=>{
  const [movieDetails, setMovieDetails] = useState({})
  const [seriesDetails, setSeriesDetails] = useState({})
  
+ 
   const searchData = async (text,)=>{  
    
    const res = await fetch(`${APIURL}/search/multi?query=${text}&api_key=${APIKEY}`)
@@ -36,8 +37,10 @@ export const MovieDbProvider = ({children})=>{
   } 
 
   const getSingleMovieDetails = async(movieid)=>{
+    
     const res = await fetch(`${APIURL}/movie/${movieid}?api_key=${APIKEY}&language=en-US`)
     const data = await res.json()
+    
     console.log(data);
     setMovieDetails(data)
    
