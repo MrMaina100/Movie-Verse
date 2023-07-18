@@ -9,7 +9,7 @@ function SearchResults() {
    const {searchList} = useContext(movieDbContext)
    
   return (
-    <div>
+    <div  className="flex flex-col justify-center flex-wrap items-center p-12  space-y-4 md:flex-row md:space-x-8">
       {searchList.map((items) => {
         return (
           <div key={items.id} className=" w-64 rounded-xl shadow-2xl h-96 ">
@@ -18,7 +18,7 @@ function SearchResults() {
                <img src="https://www.shutterstock.com/image-vector/doodle-stick-figure-no-search-600w-1595649697.jpg" alt="" className="max-h-[82%] w-full h-full"  />  }
 
             <p>{items.title}</p>
-            <p>{items.vote_average}/10</p>
+            <p>{typeof items.vote_average === 'number' ? items.vote_average.toFixed(1): items.vote_average}/10</p>
           </div>
         );
       })
