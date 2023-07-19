@@ -24,8 +24,8 @@ function TvDisplay() {
               :
                <img src="https://www.shutterstock.com/image-vector/doodle-stick-figure-no-search-600w-1595649697.jpg" alt="" className="max-h-[82%] w-full h-full"  />  }
            
-            <p>{items.name}</p>
-            <p>{items.vote_average}/10</p>    
+            <p className="font-inter text-[15px]">{items.name}</p>
+            <p className="font-inter text-[15px]">{items.vote_average}/10</p>    
          
           </div> 
           

@@ -29,14 +29,14 @@ function ShowsDetails() {
 
       <div className="px-2.5 space-y-2 mt-2 mb-2">
 
-        <p>{overview}</p>
+        <p className="font-inter">{overview}</p>
         <Link to={homepage}>
-          <button className="p-3 bg-black text-white mt-2 rounded-lg capitalize">Visit HomePage</button>
+          <button className="p-3 bg-black text-white mt-2 rounded-lg capitalize font-inter">Visit HomePage</button>
         </Link> 
-        <p>First-air-date: {first_air_date}</p>
-        <p>Last-air-date:{last_air_date}</p>
+        <p className="font-inter">First-air-date: {first_air_date}</p>
+        <p className="font-inter">Last-air-date:{last_air_date}</p>
         
-        <p>Ratings:{typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
+        <p className="font-inter">Ratings:{typeof vote_average === 'number' ? vote_average.toFixed(1) : vote_average }/10</p>
       </div>
 
      </div>

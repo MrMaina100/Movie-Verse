@@ -5,16 +5,16 @@ function Header() {
     <div className=" bg-black text-white">
       <div className="container mx-auto p-5 flex items-center justify-between">
         <Link to="/">
-          <h1 className="font-bold text-2xl">MovieVerse</h1>
+          <h1 className=" text-xl font-inter">MOVIEVERSE</h1>
         </Link>
 
-        <div className="flex justify-between space-x-6">
+        <div className="flex justify-between space-x-4">
           <Link to="/movies">
-            <p className="font-semibold">Movies</p>
+            <p className="font-inter text-sm">MOVIES</p>
           </Link>
 
           <Link to="/shows">
-            <p className="font-semibold">Tv/shows</p>
+            <p className="font-inter text-sm">TV/SHOWS</p>
           </Link>
           
         </div>
