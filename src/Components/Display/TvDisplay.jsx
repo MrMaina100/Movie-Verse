@@ -5,7 +5,7 @@ import BackButton from "../../assests/BackButton"
 import NextButton from "../../assests/NextButton"
 function TvDisplay() {
 
-   const {apiData, fetchData, pageNumber, setPageNumber} = useContext(movieDbContext)
+   const {apiData, fetchData, pageNumber, setPageNumber, loading} = useContext(movieDbContext)
    useEffect(()=>{
     fetchData('tv/top_rated', pageNumber)
 
@@ -16,7 +16,7 @@ function TvDisplay() {
 
     <>
       <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
-      {apiData.map((items)=>{
+      {loading ? <h1>loading...</h1> : apiData.map((items)=>{ 
         return(  
           
           <Link to={`/showsDetails/${items.id}`} key={items.id}>

@@ -9,7 +9,7 @@ import NextButton from "../../assests/NextButton"
 
 function HomeDisplay() {
 
-   const {apiData,fetchData, pageNumber, setPageNumber} = useContext(movieDbContext)
+   const {apiData,fetchData, pageNumber, setPageNumber, loading} = useContext(movieDbContext)
    useEffect(()=>{
     fetchData('movie/popular',pageNumber)
    },[pageNumber])   
@@ -21,7 +21,7 @@ function HomeDisplay() {
    <>
    <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
 
-      {apiData.map((items)=>{
+      { loading ? <h1>Loading..</h1> : apiData.map((items)=>{
         return( 
           
           <Link to={`/movieDetails/${items.id}`} key={items.id}>
