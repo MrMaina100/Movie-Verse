@@ -1,17 +1,18 @@
 import { useState, useContext } from "react"
 import movieDbContext from "../../Context/MovieDbContext"
 import { useNavigate} from "react-router-dom"
+import { toast } from "sonner"
 
 function Search() {
 
-   const [formData, setFormData] = useState('')
+   const [formData, setFormData] = useState('') 
    const navigate = useNavigate()
-   const { searchData, searchList } = useContext(movieDbContext)
+   const { searchData } = useContext(movieDbContext)
 
    const handleSubmit = (e)=>{
       e.preventDefault()
       if(formData === ''){
-        alert('please input something')
+        toast.error('please input something')
       }else{
         searchData(formData)
         navigate('/searchResults')        
