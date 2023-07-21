@@ -7,6 +7,7 @@ import MovieDetails from "./Components/layout/MovieDetails"
 import ShowsDetails from "./Components/layout/ShowsDetails"
 import { MovieDbProvider } from "./Context/MovieDbContext"
 import SearchResults from "./Components/Display/SearchResults"
+import { Toaster } from "sonner"
 
 
 
@@ -14,8 +15,9 @@ function App() {
 
   
   return (
-    
+
    <MovieDbProvider>
+    <Toaster position="top-center" expand={false} richColors/>
     <Router>      
     <Header/>
    
