@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-
+import { toast } from "sonner";
 
 const movieDbContext = createContext();
 
@@ -15,41 +15,74 @@ export const MovieDbProvider = ({children})=>{
  const [pageNumber, setPageNumber]=useState(1)
  const [movieDetails, setMovieDetails] = useState({})
  const [seriesDetails, setSeriesDetails] = useState({})
+ const [loading, setLoading] = useState(false)
  
  
-  const searchData = async (text,)=>{  
-   
-   const res = await fetch(`${APIURL}/search/multi?query=${text}&api_key=${APIKEY}`)
-   const data = await res.json()
-   console.log(data.results);
-   setSearchlist(data.results)
-   
+  const searchData = async (text)=>{  
+
+   try {
+    const res = await fetch(`${APIURL}/search/multi?query=${text}&api_key=${APIKEY}`)
+    const data = await res.json()  
+    console.log(data.results);
+    setSearchlist(data.results)
+      
+   } catch (error) {
+       toast.error('error from server')
+       setLoading(false)
+      
+   }
+  
+      
   
   }
 
   const fetchData = async (endpoint,pageNumber)=>{
-     
-     const res = await  fetch(`${APIURL}${endpoint}?api_key=${APIKEY}&language=en-US&page=${pageNumber}`)
-     const data = await res.json()
-     SetApiData(data.results) 
 
-       
+   try {
+      setLoading(true)
+      const res = await  fetch(`${APIURL}${endpoint}?api_key=${APIKEY}&language=en-US&page=${pageNumber}`)
+      const data = await res.json()
+      SetApiData(data.results) 
+      setLoading(false)
+      
+   } catch (error) {
+      toast.error('error from server')
+      setLoading(false)
+      
+ 
+   }
+      
   } 
 
   const getSingleMovieDetails = async(movieid)=>{
+
+   try {
+     const res = await fetch(`${APIURL}/movie/${movieid}?api_key=${APIKEY}&language=en-US`)
+     const data = await res.json()    
+     console.log(data);
+     setMovieDetails(data)
+      
+   } catch (error) {
+      toast.error('error from server')
+      setLoading(false)
+      
+   }
     
-    const res = await fetch(`${APIURL}/movie/${movieid}?api_key=${APIKEY}&language=en-US`)
-    const data = await res.json()
-    
-    console.log(data);
-    setMovieDetails(data)
-   
+      
   }
 
   const getSingleTVDetails = async(seriesId)=>{
-   const res = await fetch(`${APIURL}/tv/${seriesId}?api_key=${APIKEY}&language=en-US`)
-   const data = await res.json()
-   setSeriesDetails(data)
+
+   try {
+    const res = await fetch(`${APIURL}/tv/${seriesId}?api_key=${APIKEY}&language=en-US`)
+    const data = await res.json()
+    setSeriesDetails(data)
+      
+   } catch (error) {
+      toast.error('error from server')
+      setLoading(false)
+   }
+  
   }
 
 
@@ -60,7 +93,8 @@ export const MovieDbProvider = ({children})=>{
     searchList,
     pageNumber,
     movieDetails,
-    seriesDetails,  
+    seriesDetails, 
+    loading, 
     searchData,
     fetchData,
     setPageNumber,
