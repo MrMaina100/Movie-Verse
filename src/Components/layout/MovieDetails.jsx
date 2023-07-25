@@ -2,13 +2,14 @@ import { useContext, useEffect } from "react"
 import movieDbContext from "../../Context/MovieDbContext"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom";
+import BackButton from "../../assests/BackButton";
 
 function MovieDetails() {
    const params = useParams();
    
    const {movieDetails, getSingleMovieDetails} = useContext(movieDbContext)
 
-   const {backdrop_path, homepage, overview, poster_path, release_date, vote_average}= movieDetails
+   const { homepage, overview, poster_path, release_date, vote_average}= movieDetails
    useEffect(()=>{
       getSingleMovieDetails(params.movie_id)
 
@@ -16,9 +17,9 @@ function MovieDetails() {
   return (
     <>
      <Link to='/'>
-     <button className="p-2 ml-2 bg-black text-white mt-2 rounded-lg capitalize"><svg className="w-4 h-4 text-gray-800 dark:text-white" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 8 14">
-     <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M7 1 1.3 6.326a.91.91 0 0 0 0 1.348L7 13"/>
-     </svg></button>
+     <button className="p-2 ml-2 bg-black text-white mt-2 rounded-lg capitalize">
+     <BackButton/>
+     </button>
      </Link> 
 
      <div className="flex flex-col mt-2 md:flex-row md:space-x-2 max-w-[80%] mx-auto items-center">
