@@ -18,12 +18,11 @@ export const MovieDbProvider = ({children})=>{
  const [loading, setLoading] = useState(false)
  
  
-  const searchData = async (text)=>{  
+  const searchData = async (text, type)=>{  
 
    try {
-    const res = await fetch(`${APIURL}/search/multi?query=${text}&api_key=${APIKEY}`)
-    const data = await res.json()  
-    console.log(data.results);
+    const res = await fetch(`${APIURL}/search/${type}?query=${text}&api_key=${APIKEY}`)
+    const data = await res.json()    
     setSearchlist(data.results)
       
    } catch (error) {
@@ -59,7 +58,7 @@ export const MovieDbProvider = ({children})=>{
    try {
      const res = await fetch(`${APIURL}/movie/${movieid}?api_key=${APIKEY}&language=en-US`)
      const data = await res.json()    
-     console.log(data);
+     
      setMovieDetails(data)
       
    } catch (error) {
