@@ -19,12 +19,14 @@ function HomeDisplay() {
   return (
    
    <>
-   <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
-
+    
+   <div className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6 ">
+  
       { loading ? <h1>Loading..</h1> : apiData.map((items)=>{
         return( 
-          
+                   
           <Link to={`/movieDetails/${items.id}`} key={items.id}>
+            
            <div key={items.id}  className=" w-64 rounded-xl shadow-2xl h-96 ">
               {items.poster_path ? <img src={`https://image.tmdb.org/t/p/w500/${items.poster_path}`} alt="" className="max-h-[82%] w-full " /> 
               :

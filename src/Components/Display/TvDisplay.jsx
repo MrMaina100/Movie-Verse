@@ -15,7 +15,7 @@ function TvDisplay() {
   return (
 
     <>
-      <div className="flex flex-col justify-between flex-wrap items-center p-12  space-y-4 md:flex-row">
+      <div className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6">
       {loading ? <h1>loading...</h1> : apiData.map((items)=>{ 
         return(  
           
