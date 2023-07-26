@@ -1,5 +1,6 @@
 import { useState, useContext, useEffect } from "react"
 import movieDbContext from "../../Context/MovieDbContext"
+import SearchIcon from "../../assests/SearchIcon"
 import { useNavigate} from "react-router-dom"
 import { toast } from "sonner"
 
@@ -47,17 +48,25 @@ function Search() {
     <>
           
 
-      <form onSubmit={handleSubmit} className="flex items-center justify-center mt-2">
-
-         <input
+      <form onSubmit={handleSubmit} className="flex items-center justify-center">
+        <div className="flex-col">
+          <div className="relative ">
+          <input
           type="text"
           value={searchInput}
           name="searchInput"  
           onChange={handleChange}                
-          className=" border-2 border-black rounded-lg "
+          className="w-full text-sm border border-black outline-none rounded-lg p-2.5  pr-16 mt-2 md:pr-32"
          />
+           <button className="absolute right-2.5 bottom-2.5 ">
+            <SearchIcon/>
+            </button> 
 
-         <label>
+          </div>
+
+          <div className="space-x-3">
+
+          <label className="font-inter">
           <input
           type="radio"
           name="type"
@@ -65,11 +74,11 @@ function Search() {
           checked={type ==='movie'}
           onChange={handleChange}
            />
-           movie
+           Movie
 
          </label>
 
-         <label>
+         <label className="font-inter">
           <input
           type="radio"
           name="type"
@@ -77,17 +86,11 @@ function Search() {
           checked={type ==='tv'}
           onChange={handleChange}
            />
-           Tv
+           TvShows
          </label>
-
-         
-         
-         {/* <button onClick={handleSubmit}>search</button>   */}
-        
-                
-        
-      </form>  
-    
+          </div>
+        </div>
+      </form>    
     </>
    
   )
