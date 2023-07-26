@@ -12,7 +12,7 @@ function TvSearchResults() {
   
    
   return (
-    <div  className="flex flex-col justify-center flex-wrap items-center p-12  space-y-4 md:flex-row md:space-x-8">
+    <div  className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6">
       { loading ? <h1>loading..</h1> :searchList.map((items) => {
         return (
          <Link to={`/showsDetails/${items.id}`} key={items.id}>
