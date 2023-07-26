@@ -22,7 +22,7 @@ function TvSearchResults() {
               :
                <img src="https://www.shutterstock.com/image-vector/doodle-stick-figure-no-search-600w-1595649697.jpg" alt="" className="max-h-[82%] w-full h-full"  />  }
 
-            <p className="font-inter">{items.title}</p>
+            <p className="font-inter">{items.name}</p>
             <p className="font-inter">{typeof items.vote_average === 'number' ? items.vote_average.toFixed(1): items.vote_average}/10</p>
           </div>
           </Link>
