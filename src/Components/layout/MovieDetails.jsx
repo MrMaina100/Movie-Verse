@@ -2,7 +2,7 @@ import { useContext, useEffect } from "react"
 import movieDbContext from "../../Context/MovieDbContext"
 import { useParams } from "react-router-dom"
 import { Link } from "react-router-dom";
-import BackButton from "../../assests/BackButton";
+
 
 function MovieDetails() {
    const params = useParams();
@@ -15,14 +15,9 @@ function MovieDetails() {
 
    },[params.movie_id])
   return (
-    <>
-     <Link to='/'>
-     <button className="p-2 ml-2 bg-black text-white mt-2 rounded-lg capitalize">
-     <BackButton/>
-     </button>
-     </Link> 
+    <>  
 
-     <div className="flex flex-col mt-2 md:flex-row md:space-x-2 max-w-[80%] mx-auto items-center">
+     <div className="flex flex-col mt-10 md:flex-row md:space-x-2 max-w-[80%] mx-auto items-center ">
 
       <img src={`https://image.tmdb.org/t/p/w500/${poster_path}`} alt="" className="h-96"  />
 
