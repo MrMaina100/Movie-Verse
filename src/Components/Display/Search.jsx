@@ -8,7 +8,7 @@ function Search() {
 
    const [formData, setFormData] = useState({
     searchInput:'',
-    type:'',
+    type: '',
 
    }) 
    const {searchInput, type} = formData
