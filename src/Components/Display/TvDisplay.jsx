@@ -5,11 +5,11 @@ import BackButton from "../../assests/BackButton"
 import NextButton from "../../assests/NextButton"
 function TvDisplay() {
 
-   const {apiData, fetchData, pageNumber, setPageNumber, loading} = useContext(movieDbContext)
+   const {apiData, fetchData, tvpageNumber, setTVPageNumber, loading} = useContext(movieDbContext)
    useEffect(()=>{
-    fetchData('tv/top_rated', pageNumber)
+    fetchData('tv/top_rated', tvpageNumber)
 
-   },[pageNumber])
+   },[tvpageNumber])
    
    
   return (
@@ -43,10 +43,10 @@ function TvDisplay() {
 
       
       
-    <button onClick={()=>setPageNumber(page=>page -1)} disabled={pageNumber === 1} className="p-1.5 rounded-full bg-black text-white text-center ">
+    <button onClick={()=>setTVPageNumber(page=>page -1)} disabled={tvpageNumber === 1} className="p-1.5 rounded-full bg-black text-white text-center ">
     <BackButton/>
      </button>
-    <button onClick={()=>setPageNumber(page=>page +1)} className="p-1.5 rounded-full bg-black text-white text-center">
+    <button onClick={()=>setTVPageNumber(page=>page +1)} className="p-1.5 rounded-full bg-black text-white text-center">
      <NextButton/>
     </button>
       
