@@ -12,7 +12,8 @@ export const MovieDbProvider = ({children})=>{
  
  const [apiData, SetApiData] = useState([]) 
  const [searchList, setSearchlist] = useState([])
- const [pageNumber, setPageNumber]=useState(1)
+ const [tvpageNumber, setTVPageNumber]=useState(1)
+ const [moviePageNumber, setMoviePageNumber] = useState(1)
  const [movieDetails, setMovieDetails] = useState({})
  const [seriesDetails, setSeriesDetails] = useState({})
  const [loading, setLoading] = useState(false)
@@ -90,13 +91,15 @@ export const MovieDbProvider = ({children})=>{
    <movieDbContext.Provider value={{
     apiData,
     searchList,
-    pageNumber,
+    tvpageNumber,
+    moviePageNumber,
     movieDetails,
     seriesDetails, 
     loading, 
     searchData,
     fetchData,
-    setPageNumber,
+    setTVPageNumber,
+    setMoviePageNumber,
     getSingleMovieDetails,
     getSingleTVDetails
   
