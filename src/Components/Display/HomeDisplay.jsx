@@ -9,10 +9,10 @@ import NextButton from "../../assests/NextButton"
 
 function HomeDisplay() {
 
-   const {apiData,fetchData,  moviePageNumber, setMoviePageNumber, loading} = useContext(movieDbContext)
+   const {apiData,fetchData,  homePageNumber, setHomePageNumber, loading} = useContext(movieDbContext)
    useEffect(()=>{
-    fetchData('movie/popular',moviePageNumber)
-   },[moviePageNumber]) 
+    fetchData('movie/popular',homePageNumber)
+   },[homePageNumber]) 
 
 
 
@@ -47,10 +47,10 @@ function HomeDisplay() {
     </div>   
     <div className="space-x-2 ml-2 mb-2 flex items-center justify-center">
       
-    <button onClick={()=>setMoviePageNumber(page=>page -1)} disabled={moviePageNumber === 1} className="p-1.5 rounded-full bg-black text-white text-center ">
+    <button onClick={()=>setHomePageNumber(page=>page -1)} disabled={homePageNumber === 1} className="p-1.5 rounded-full bg-black text-white text-center ">
       <BackButton/>
      </button>
-    <button onClick={()=>setMoviePageNumber(page=>page +1)} className="p-1.5 rounded-full bg-black text-white text-center">
+    <button onClick={()=>setHomePageNumber(page=>page +1)} className="p-1.5 rounded-full bg-black text-white text-center">
      <NextButton/>
     </button>
       

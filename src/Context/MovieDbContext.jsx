@@ -6,13 +6,14 @@ const movieDbContext = createContext();
 
 export const MovieDbProvider = ({children})=>{
    
- const APIKEY =  import.meta.env.VITE_API;
+ const APIKEY =  ''
  const APIURL = 'https://api.themoviedb.org/3/';
 
  
  const [apiData, SetApiData] = useState([]) 
  const [searchList, setSearchlist] = useState([])
  const [tvpageNumber, setTVPageNumber]=useState(1)
+ const [homePageNumber, setHomePageNumber] = useState(1)
  const [moviePageNumber, setMoviePageNumber] = useState(1)
  const [movieDetails, setMovieDetails] = useState({})
  const [seriesDetails, setSeriesDetails] = useState({})
@@ -93,6 +94,7 @@ export const MovieDbProvider = ({children})=>{
     searchList,
     tvpageNumber,
     moviePageNumber,
+    homePageNumber,
     movieDetails,
     seriesDetails, 
     loading, 
@@ -100,6 +102,7 @@ export const MovieDbProvider = ({children})=>{
     fetchData,
     setTVPageNumber,
     setMoviePageNumber,
+    setHomePageNumber,
     getSingleMovieDetails,
     getSingleTVDetails
   
