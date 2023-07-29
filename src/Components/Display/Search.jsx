@@ -31,17 +31,18 @@ function Search() {
       toast.error("please input something");
     } else {
       searchData(searchInput, type);
+       {
+      type === "movie"
+        ? navigate("/MovieSearchResults")
+        : navigate("/TvSearchResults");
+    }
 
       setFormData({
         searchInput: "",
         type: "",
       });
     }
-    {
-      type === "movie"
-        ? navigate("/MovieSearchResults")
-        : navigate("/TvSearchResults");
-    }
+   
   };
 
   return (
@@ -59,7 +60,7 @@ function Search() {
               onChange={handleChange}
               className="w-full text-sm border border-black outline-none rounded-lg p-2.5  pr-16 mt-2 md:pr-32"
             />
-            <button disabled={!searchInput} className="absolute right-2.5 bottom-2.5 ">             
+            <button  className="absolute right-2.5 bottom-2.5 ">             
               
               <SearchIcon />
             </button>
