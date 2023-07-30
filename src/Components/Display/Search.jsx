@@ -1,7 +1,7 @@
-import { useState, useContext, useEffect } from "react";
-import movieDbContext from "../../Context/MovieDbContext";
-import SearchIcon from "../../assests/SearchIcon";
-import { useNavigate } from "react-router-dom";
+import { useState, useContext, useEffect } from "react"
+import movieDbContext from "../../Context/MovieDbContext"
+import SearchIcon from "../../assests/SearchIcon"
+import { useNavigate } from "react-router-dom"
 import { toast } from "sonner";
 
 function Search() {
@@ -29,18 +29,16 @@ function Search() {
     e.preventDefault();
     if (searchInput.trim() === "") {
       toast.error("please input something")
+
     } else {
       searchData(searchInput, type)
-
-     navigate(type === 'movie' ?'/MovieSearchResults' : '/TvSearchResults' )
-
+        navigate(type === 'movie' ?'/MovieSearchResults' : '/TvSearchResults' )
+     
       setFormData({
         searchInput: "",
         type: "",
       });
     }
-       
-    
    
   };
 
