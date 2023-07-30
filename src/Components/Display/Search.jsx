@@ -28,20 +28,19 @@ function Search() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (searchInput.trim() === "") {
-      toast.error("please input something");
+      toast.error("please input something")
     } else {
-      searchData(searchInput, type);
-       {
-      type === "movie"
-        ? navigate("/MovieSearchResults")
-        : navigate("/TvSearchResults");
-    }
+      searchData(searchInput, type)
+
+     navigate(type === 'movie' ?'/MovieSearchResults' : '/TvSearchResults' )
 
       setFormData({
         searchInput: "",
         type: "",
       });
     }
+       
+    
    
   };
 
