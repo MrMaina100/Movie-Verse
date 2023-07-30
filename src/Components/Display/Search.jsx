@@ -15,7 +15,7 @@ function Search() {
   
 
    const navigate = useNavigate()
-   const { searchData } = useContext(movieDbContext)
+   const { searchData, searchList } = useContext(movieDbContext)
     
 
    const handleChange = (e)=>{
@@ -30,7 +30,10 @@ function Search() {
     if (searchInput.trim() === "") {
       toast.error("please input something")
 
-    } else {
+    } else if(searchList.length === 0){
+      toast.error('cannot be found')
+    }
+    else {
       searchData(searchInput, type)
         navigate(type === 'movie' ?'/MovieSearchResults' : '/TvSearchResults' )
      
