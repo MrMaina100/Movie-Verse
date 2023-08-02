@@ -31,7 +31,7 @@ function Search() {
       toast.error("please input something")     
 
     }
-    else {
+     else {     
       searchData(searchInput, type)
         navigate(type === 'movie' ?'/MovieSearchResults' : '/TvSearchResults' )
      
