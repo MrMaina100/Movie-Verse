@@ -1,15 +1,14 @@
 import { Link} from "react-router-dom"
 import movieDbContext from "../../Context/MovieDbContext"
 import { useContext} from "react"
-import { toast } from "sonner"
+import ErrorComponet from "../Error/ErrorComponet"
 
 function MovieSearchResults() {
 
-    const {searchList, loading} = useContext(movieDbContext)
-
-  return (
-    <div  className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6">
-      { loading ? <h1>loading..</h1> :searchList.map((items) => {
+    const {searchList, loading} = useContext(movieDbContext) 
+    const renderSearchResults = (
+      <div>
+         { searchList.map((items) => {
         return (
          <Link to={`/movieDetails/${items.id}`} key={items.id}>
          
@@ -26,6 +25,15 @@ function MovieSearchResults() {
       })
       
       }
+
+      </div>
+    )   
+
+  return (
+    <div  className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6">
+      {loading ? <h1>loading</h1> : renderSearchResults}
+      {searchList.length === 0 && <ErrorComponet/>}
+     
     </div>
   )
 }
