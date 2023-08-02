@@ -1,15 +1,10 @@
-import { useLocation , Link} from "react-router-dom"
+import { Link} from "react-router-dom"
 import movieDbContext from "../../Context/MovieDbContext"
 import { useContext} from "react"
 
 
-function TvSearchResults() {
-
-   const location = useLocation()
-   const searchQuery = new URLSearchParams(location.search).get('query')
-   const {searchList, loading} = useContext(movieDbContext)
-  
-  
+function TvSearchResults() {   
+   const {searchList, loading} = useContext(movieDbContext) 
    
   return (
     <div  className="flex flex-col items-center justify-center space-y-4 p-4 md:flex-row md:flex-wrap md:space-x-6">
