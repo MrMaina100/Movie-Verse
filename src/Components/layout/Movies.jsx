@@ -1,5 +1,5 @@
 import MovieDisplay from "../Display/MovieDisplay"
-import Search from "../Display/Search"
+import Search from "../Search/Search"
 
 function Movies() {
   return (

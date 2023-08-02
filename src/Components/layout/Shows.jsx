@@ -1,5 +1,5 @@
 import TvDisplay from "../Display/TvDisplay"
-import Search from "../Display/Search"
+import Search from "../Search/Search"
 
 function Shows() {
   return (

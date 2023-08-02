@@ -1,5 +1,5 @@
 import HomeDisplay from "../Display/HomeDisplay"
-import Search from "../Display/Search"
+import Search from "../Search/Search"
 
 
 function Home() {

@@ -6,8 +6,8 @@ import Home from "./Components/layout/Home"
 import MovieDetails from "./Components/Details/MovieDetails"
 import ShowsDetails from "./Components/Details/ShowsDetails"
 import { MovieDbProvider } from "./Context/MovieDbContext"
-import MovieSearchResults from "./Components/Display/MovieSearchResults"
-import TvSearchResults from "./Components/Display/TvSearchResults"
+import MovieSearchResults from "./Components/Search/MovieSearchResults"
+import TvSearchResults from "./Components/Search/TvSearchResults"
 import { Toaster } from "sonner"
 
 
