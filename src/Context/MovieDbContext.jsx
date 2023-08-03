@@ -1,13 +1,13 @@
-import { createContext, useState } from "react";
-import { toast } from "sonner";
+import { createContext, useState } from "react"
+import { toast } from "sonner"
 
-const movieDbContext = createContext();
+const movieDbContext = createContext()
 
 
 export const MovieDbProvider = ({children})=>{
    
- const APIKEY =  ''
- const APIURL = 'https://api.themoviedb.org/3/';
+ const APIKEY = import.meta.env.VITE_APP_APIKEY  
+ const APIURL = 'https://api.themoviedb.org/3/'
 
  
  const [apiData, SetApiData] = useState([]) 
