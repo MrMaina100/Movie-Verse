@@ -15,7 +15,8 @@ Go to the [Movie DB API](https://www.themoviedb.org/) and then register for a fr
 1. In the source folder(src) navigate to the context folder where the MovieDBContext file is located and place your api key you got from the Movie DB API in the variable ```const APIKEY```.
 Replace the import.meta.env.VITE_APP_APIKEY with your api key.
 
-![api placement screenshot](/ScreenShots/Screenshot%20context.png)
+![Screenshot zoomed](https://github.com/MrMaina100/Movie-Verse/assets/91890976/2d771fc5-277a-4325-a4ac-4e762772ff1b)
+
 
 1. Run development server  ```npm run dev```
 
